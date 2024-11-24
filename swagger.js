@@ -2,7 +2,7 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Andrew Leetham\'s CSE341 Project 2 API',
+    title: "Andrew Leetham's CSE341 Project 2 API",
     description: 'Library API'
   },
   host: 'cse341-project2-a22r.onrender.com',

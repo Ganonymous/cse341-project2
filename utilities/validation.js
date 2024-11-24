@@ -46,8 +46,8 @@ validate.checkBook = (req, res, next) => {
       })
       .join('\n');
     throw new Error(`Invalid book:
-            Errors detected:
-            ${errorString}`);
+Errors detected:
+${errorString}`);
   }
   next();
 };

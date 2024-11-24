@@ -5,7 +5,7 @@ const doc = {
     title: 'Andrew Leetham\'s CSE341 Project 2 API',
     description: 'Library API'
   },
-  host: 'cse341-node-cs6s.onrender.com',
+  host: 'cse341-project2-a22r.onrender.com',
   schemes: ['https']
 };
 

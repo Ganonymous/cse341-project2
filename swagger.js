@@ -6,7 +6,18 @@ const doc = {
     description: 'Library API'
   },
   host: 'cse341-project2-a22r.onrender.com',
-  schemes: ['https']
+  schemes: ['https'],
+  definitions: {
+    book: {
+      title: 'book title',
+      author: 'author name',
+      publisher: 'publisher name',
+      isbn: '978-0-544-27299-6',
+      genre: 'genre',
+      pageCount: 123,
+      rating: 4.4
+    }
+  }
 };
 
 const outputFile = './swagger.json';

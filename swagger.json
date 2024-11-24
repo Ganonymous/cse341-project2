@@ -25,16 +25,29 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add a book",
+            "schema": {
+              "$ref": "#/definitions/book"
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -51,9 +64,90 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add a book",
+            "schema": {
+              "$ref": "#/definitions/book"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "book": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "book title"
+        },
+        "author": {
+          "type": "string",
+          "example": "author name"
+        },
+        "publisher": {
+          "type": "string",
+          "example": "publisher name"
+        },
+        "isbn": {
+          "type": "string",
+          "example": "978-0-544-27299-6"
+        },
+        "genre": {
+          "type": "string",
+          "example": "genre"
+        },
+        "pageCount": {
+          "type": "number",
+          "example": 123
+        },
+        "rating": {
+          "type": "number",
+          "example": 4.4
         }
       }
     }

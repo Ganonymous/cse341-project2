@@ -26,6 +26,7 @@ router.post(
   '/',
   (req, res, next) => {
     /* #swagger.responses[204] = { description: 'No Content' } */
+    /* #swagger.responses[401] = { description: 'Unauthorized' } */
     /* #swagger.responses[500] = { description: 'Internal Server Error' } */
     /* #swagger.parameters ['body'] = {
     in: 'body',
@@ -34,6 +35,7 @@ router.post(
     }*/
     next();
   },
+  utilities.isAuthenticated,
   validate.bookRules(),
   validate.checkBook,
   utilities.handleErrors(booksController.addBook)
@@ -43,6 +45,7 @@ router.put(
   '/:id',
   (req, res, next) => {
     /* #swagger.responses[204] = { description: 'No Content' } */
+    /* #swagger.responses[401] = { description: 'Unauthorized' } */
     /* #swagger.responses[500] = { description: 'Internal Server Error' } */
     /* #swagger.parameters ['body'] = {
       in: 'body',
@@ -51,6 +54,7 @@ router.put(
       }*/
     next();
   },
+  utilities.isAuthenticated,
   validate.idRule(),
   validate.checkId,
   validate.bookRules(),
@@ -62,9 +66,11 @@ router.delete(
   '/:id',
   (req, res, next) => {
     /* #swagger.responses[204] = { description: 'No Content' } */
+    /* #swagger.responses[401] = { description: 'Unauthorized' } */
     /* #swagger.responses[500] = { description: 'Internal Server Error' } */
     next();
   },
+  utilities.isAuthenticated,
   validate.idRule(),
   validate.checkId,
   utilities.handleErrors(booksController.deleteBook)

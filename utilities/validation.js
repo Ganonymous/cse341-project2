@@ -52,4 +52,35 @@ ${errorString}`);
   next();
 };
 
+validate.filmRules = () => {
+  return [
+    body('title').trim().escape().isLength({ min: 1 }).withMessage('Please provide a title.'),
+    body('genre').trim().escape().isLength({ min: 1 }).withMessage('Please provide a genre.'),
+    body('length')
+      .isInt({ min: 1 })
+      .withMessage('Please include the length of the film in minutes, minimum 1'),
+    body('rating')
+      .isFloat({ min: 0, max: 5 })
+      .withMessage(
+        'Please include an average rating, as a number of stars between 0 and 5, inclusive.'
+      )
+  ];
+};
+
+validate.checkFilm = (req, res, next) => {
+  let errors = [];
+  errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorString = errors.errors
+      .map((error) => {
+        return `${error.path}: ${error.message}`;
+      })
+      .join('\n');
+    throw new Error(`Invalid film:
+  Errors detected:
+  ${errorString}`);
+  }
+  next();
+};
+
 module.exports = validate;

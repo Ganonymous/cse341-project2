@@ -4,7 +4,8 @@ const swaggerDoc = require('../swagger.json');
 const passport = require('passport');
 
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-router.use('/books', require('./books'));
+router.use('/books', require('./books') /*#swagger.tags = ['Books']*/);
+router.use('/films', require('./films') /*#swagger.tags = ['Films']*/);
 
 router.get(
   '/login',

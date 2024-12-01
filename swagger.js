@@ -16,6 +16,12 @@ const doc = {
       genre: 'genre',
       pageCount: 123,
       rating: 4.4
+    },
+    film: {
+      title: 'film title',
+      length: 90,
+      genre: 'genre',
+      rating: 3.67
     }
   }
 };
